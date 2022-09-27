@@ -8,7 +8,7 @@ class TitleParagraph extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(vertical: 10),
+      height: 40,
       margin: EdgeInsets.only(bottom: 5),
       decoration: BoxDecoration(
         gradient: RadialGradient(colors: [

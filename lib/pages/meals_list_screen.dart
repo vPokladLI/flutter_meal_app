@@ -19,14 +19,25 @@ class MealsListScreen extends StatelessWidget {
         .toList();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(categoryTitle),
-      ),
-      body: ListView.builder(
-          itemBuilder: (ctx, index) {
-            return MealItem(meal: categoryMeals[index]);
-          },
-          itemCount: categoryMeals.length),
-    );
+        appBar: AppBar(
+          title: Text(categoryTitle),
+        ),
+        body: GridView(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 500,
+              mainAxisExtent: 320,
+              childAspectRatio: 3 / 2),
+          children: categoryMeals
+              .map((e) => MealItem(
+                    meal: e,
+                  ))
+              .toList(),
+        )
+        // ListView.builder(
+        //     itemBuilder: (ctx, index) {
+        //       return MealItem(meal: categoryMeals[index]);
+        //     },
+        //     itemCount: categoryMeals.length),
+        );
   }
 }
