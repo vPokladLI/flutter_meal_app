@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import './constants/routes.dart';
 
-import './pages/category_screen.dart';
-
 void main() {
   runApp(MyApp());
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../dummyData/dummy_data.dart';
 
+import '../widgets/meal_item.dart';
+
 class MealsListScreen extends StatelessWidget {
   static String routeName = '/category-meals';
   @override
@@ -22,7 +24,7 @@ class MealsListScreen extends StatelessWidget {
       ),
       body: ListView.builder(
           itemBuilder: (ctx, index) {
-            return Text(categoryMeals[index].title);
+            return MealItem(meal: categoryMeals[index]);
           },
           itemCount: categoryMeals.length),
     );
