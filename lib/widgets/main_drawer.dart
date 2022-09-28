@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import '../pages/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key key}) : super(key: key);
@@ -43,9 +42,17 @@ class MainDrawer extends StatelessWidget {
         ),
         SizedBox(height: 30),
         buildListTile(
-            icon: Icons.restaurant_menu, title: 'Meals', onTap: () {}),
+            icon: Icons.restaurant_menu,
+            title: 'Meals',
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/');
+            }),
         buildListTile(
-            icon: Icons.filter_alt_outlined, title: 'Filters', onTap: () {}),
+            icon: Icons.filter_alt_outlined,
+            title: 'Filters',
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(FilterScreen.routName);
+            }),
       ]),
     );
   }
