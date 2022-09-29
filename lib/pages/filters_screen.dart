@@ -25,8 +25,11 @@ class _FilterScreenState extends State<FilterScreen> {
       'vegan': _isVegan,
       'vegetarian': _isVegetarian
     };
+    final args = ModalRoute.of(context).settings.arguments;
+    print(args);
 
     widget.saveFilters(selectedFilters);
+
     Navigator.of(context).pushReplacementNamed('/');
   }
 

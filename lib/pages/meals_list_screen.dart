@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/meal.dart';
 
 import '../widgets/meal_item.dart';
+import '../pages/filters_screen.dart';
 
 class MealsListScreen extends StatefulWidget {
   static String routeName = '/category-meals';
@@ -38,6 +39,11 @@ class _MealsListScreenState extends State<MealsListScreen> {
     super.didChangeDependencies();
   }
 
+  void onFilterTap() {
+    Navigator.of(context)
+        .pushNamed(FilterScreen.routName, arguments: '/category-meals');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,13 +51,18 @@ class _MealsListScreenState extends State<MealsListScreen> {
             title: Text(categoryTitle),
             actions: widget.intiFilters.containsValue(true)
                 ? [
-                    Text('Selected filters: '),
-                    Column(children: [
-                      if (widget.intiFilters['gluten']) Text('Gluten free'),
-                      if (widget.intiFilters['lactose']) Text('Lactose free'),
-                      if (widget.intiFilters['vegan']) Text('Vegan'),
-                      if (widget.intiFilters['vegetarian']) Text('vegetarian'),
-                    ]),
+                    GestureDetector(
+                        onTap: onFilterTap, child: Text('Selected filters: ')),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (widget.intiFilters['gluten']) Text('Gluten free'),
+                          if (widget.intiFilters['lactose'])
+                            Text('Lactose free'),
+                          if (widget.intiFilters['vegan']) Text('Vegan'),
+                          if (widget.intiFilters['vegetarian'])
+                            Text('vegetarian'),
+                        ]),
                   ]
                 : null),
         body: GridView(

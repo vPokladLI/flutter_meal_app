@@ -57,8 +57,8 @@ class _MyAppState extends State<MyApp> {
       title: 'Meals App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.pink,
-          accentColor: Colors.amber,
+          primarySwatch: Colors.deepOrange,
+          accentColor: Colors.orange,
         ),
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
